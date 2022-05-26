@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/jpg" href="favicon_io/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Monty's Dilemma</title>
+</head>
+<body>
+<header>
+	<div class="logo"></div>
+	<h1>Monty's Dilemma</h1>
+	<p>The Monty Hall problem. Choose the lucky door and WIN a new car!</p>
+</header>
+
+<div class='container'>
+	<div class="doors">
+		<ul class="door__items">
+			<li class="door__item"><p>&#10004;</p><p class="door-number">1</p><img src="images/goat.png"></li>
+			<li class="door__item"><p>&#10004;</p><p class="door-number">2</p><img src="images/goat.png"></li>
+			<li class="door__item" data-winner='true'><p>&#10004;</p><p class="door-number">3</p><img src="images/car.png"></li>
+		</ul>
+	</div>
+	<div class="instructions"></div>
+	<div class="score__panel">
+		<div class="switched"></div>
+		<div class="stayed"></div>
+	</div>
+	<footer>&copy; 2022 Poor Giraffe</footer>
+</div>
+<script type="text/javascript" src='script.js'></script>
+</body>
+</html>

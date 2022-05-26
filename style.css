@@ -1,0 +1,188 @@
+:root {
+	--back: hsl(60, 10%, 55%);
+	--shadow: hsla(0, 0%, 0%, 0.5);
+	--open: hsl(60, 40%, 75%);
+	--banner: hsla(250, 20%, 20%, 0.7);
+	--banner-txt: hsla(40, 75%, 50%, 1);
+	--win: hsla(210, 100%, 40%, 1);
+	--lose: hsla(330, 100%, 60%, 1);
+	--white: hsla(0, 0%, 100%, 1);
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	background: var(--back);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	display: grid;
+	grid-template-columns: 6vw 1fr 6vw;
+	grid-template-rows: 6vw 2rem;
+	width: 100vw;
+	background: var(--banner) url('images/bunting.png');
+	background-blend-mode: multiply;
+	background-size: contain;
+	margin-bottom: 4rem;
+}
+
+header > .logo {
+	grid-column: 1;
+	grid-row: 1 / -1;
+	background-image: url('favicon_io/poor_giraffe.png');
+	background-size: cover;
+	width: 6vw;
+	aspect-ratio: 1/1;
+}
+
+
+header > h1 {
+	grid-column: 2 / 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 0.5em;
+	color: var(--banner-txt);
+	font-size: 6vw;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 2px 2px 0px var(--shadow);
+	opacity: 1;
+}
+
+header > p {
+	grid-row: 2 / -1;
+	grid-column: 1 / -1;
+	text-align: center;
+	font-style: italic;
+	color: var(--open);
+	padding: 0.25em;
+	line-height: 1.5;
+}
+
+.container {
+	width: 100vw;
+	display: flex;
+	gap: 2rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.doors {
+
+}
+
+.door__items {
+	display: flex;
+	gap: 5vw;
+	list-style: none;
+}
+
+.door__item {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	width: 216px;
+	height: 484px;
+	background-color: var(--open);
+	background-image: url('images/door.png');
+	background-size: cover;
+	background-position: center;
+	box-shadow: 15px 5px 20px var(--shadow);
+	cursor: pointer;
+	z-index: 2;
+	transition: background 500ms ease-in-out;
+}
+
+.door__item > img {
+	flex: 2;
+	opacity:  0;
+	max-width: 83%;
+	object-fit: contain;
+	object-position: center;
+	transition: opacity 2000ms ease-in-out;
+	transition-delay: 1000ms;
+}
+
+.door__item > p {
+	margin: 20px;
+	padding: 0;
+	z-index: 2;
+	font-size: 4em;
+	color: white;
+}
+
+.door__item > p:first-child {
+	opacity: 0;
+	color: yellow;
+}
+
+.door__item > p[data-tick] {
+	opacity: 1;
+	transition: opacity 500ms ease-in-out;
+}
+
+.door__item > p[data-winner] {
+	opacity: 0;
+}
+
+
+
+.instructions {
+	width: 40vw;
+	min-height: 4em;
+	background: #444;
+	color: #fff;
+	cursor: pointer;
+	transition: opacity 500ms ease-in-out;
+	transition-delay: 500ms;
+}
+
+.instructions > p {
+	padding: 1em;
+	font-size: 2vw;
+	text-align: center;
+}
+
+.score__panel {
+	width: 40vw;
+	display: flex;
+	flex-direction: column;
+}
+
+.switched {
+	--winRate: 0%;
+	display: grid;
+	grid-template-columns: 6em 3em 1fr;
+	padding: 4px 0;
+	width: 100%;
+	border-bottom: solid 2px var(--white);
+	background: linear-gradient(90deg, var(--win) 0 var(--winRate), var(--lose) var(--winRate) 100%);
+}
+
+.stayed {
+	--winRate: 0%;
+	display: grid;
+	grid-template-columns: 6em 3em 1fr;
+	padding: 4px 0;
+	width: 100%;
+	background: linear-gradient(90deg, var(--win) 0 var(--winRate), var(--lose) var(--winRate) 100%);
+}
+
+.switched > p,
+.stayed > p {
+	margin-left: 10px;
+	color: var(--white);
+	font-size: 1rem;
+
+}
+
+footer > p {
+	font-size: 12px;
+}
