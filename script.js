@@ -72,16 +72,17 @@ function stayOrSwitch(e) {
 	this.style.backgroundImage = "url('images/door_open.png')";
 	this.childNodes[2].style.opacity = 1;
 
-	instructions.outerHTML = '<div class="instructions" onclick="playAgain()"><p>Play again</p></div>'
+	instructions.innerHTML = '<p>Play again</p>';
+	instructions.addEventListener('click', playAgain);
 	updateScore();
 }
 
 function updateScore() {
 	if (switchGames != 0) {switchWinRate = Math.floor(switchWin / switchGames * 100)}
 	if (stayGames != 0) {stayWinRate = Math.floor(stayWin / stayGames * 100)}
-	switched.innerHTML = `<p>Switch</p><p>${switchGames}</p><p>win ${switchWinRate}%</p>`
+	switched.innerHTML = `<p>Switch</p><p>${switchGames}</p><p>${switchWinRate}%</p>`
 	switched.style.setProperty('--winRate', switchWinRate + '%');
-	stayed.innerHTML = `<p>Stay</p><p>${stayGames}</p><p>win ${stayWinRate}%</p>`
+	stayed.innerHTML = `<p>Stay</p><p>${stayGames}</p><p>${stayWinRate}%</p>`
 	stayed.style.setProperty('--winRate', stayWinRate + '%');
 	// show the score	
 }
